@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>食工原理 · 刷题册</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-mark">食</span><span>食工原理<small>单选题刷题册</small></span></a>
+    <div class="top-actions">
+      <button class="ghost" id="sourceBtn" title="打开本题所在章节原图">查看原图</button>
+      <button class="ghost" id="editBtn">修正文字</button>
+      <button class="icon-btn" id="themeBtn" aria-label="切换深浅色">◐</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="sidebar">
+      <section class="welcome">
+        <p class="eyebrow">FOOD ENGINEERING</p>
+        <h1>把知识点<br><em>刷成肌肉记忆。</em></h1>
+        <p>十章 · 154 道单选题 · 进度自动保存</p>
+      </section>
+
+      <section class="stats-grid">
+        <div><strong id="doneStat">0</strong><span>已作答</span></div>
+        <div><strong id="accuracyStat">—</strong><span>正确率</span></div>
+        <div><strong id="wrongStat">0</strong><span>错题</span></div>
+      </section>
+
+      <section class="panel-section">
+        <div class="section-label"><span>练习范围</span><button id="selectAllBtn">全部</button></div>
+        <div class="chapter-list" id="chapterList"></div>
+      </section>
+
+      <section class="panel-section">
+        <div class="section-label"><span>出题方式</span></div>
+        <div class="segmented" id="modeSwitch">
+          <button data-mode="sequence" class="active">顺序</button>
+          <button data-mode="random">乱序</button>
+          <button data-mode="wrong">错题</button>
+        </div>
+      </section>
+
+      <button class="reset-link" id="resetBtn">清空练习记录</button>
+    </aside>
+
+    <section class="stage">
+      <div class="progress-row">
+        <div class="crumb"><span id="chapterBadge">第一章</span><span id="questionNo">第 1 题</span></div>
+        <div class="progress-copy"><span id="positionText">1 / 154</span><div class="progress-track"><i id="progressBar"></i></div></div>
+      </div>
+
+      <article class="question-card" id="questionCard">
+        <div class="card-kicker"><span>单选题</span><button class="star" id="starBtn" aria-label="收藏本题">☆</button></div>
+        <h2 id="stem">正在载入题库…</h2>
+        <div class="options" id="options"></div>
+        <div class="feedback" id="feedback" aria-live="polite"></div>
+        <div class="card-footer">
+          <button class="secondary" id="prevBtn">← 上一题</button>
+          <div class="keyboard-hint">按 A–D 作答 · Enter 下一题</div>
+          <button class="primary" id="nextBtn">下一题 →</button>
+        </div>
+      </article>
+
+      <div class="source-note"><span>⌁</span> 题目由章节截图识别整理；若遇到公式或生僻字，可查看原图或直接修正文字。</div>
+    </section>
+  </main>
+
+  <dialog id="editDialog">
+    <form method="dialog" id="editForm">
+      <div class="dialog-head"><div><p class="eyebrow">本地勘误</p><h3>修正这道题</h3></div><button value="cancel" class="icon-btn">×</button></div>
+      <label>题干<textarea id="editStem" rows="4"></textarea></label>
+      <div id="editOptions" class="edit-options"></div>
+      <p class="dialog-tip">修改只保存在当前浏览器，不会改动原图。</p>
+      <div class="dialog-actions"><button type="button" class="secondary" id="restoreBtn">恢复识别文本</button><button value="save" class="primary">保存修改</button></div>
+    </form>
+  </dialog>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
